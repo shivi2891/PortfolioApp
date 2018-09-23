@@ -15,11 +15,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(appMiddleware.logger);
 app.use(express.static(__dirname + '/static'));
-app.use(validator);
+app.use(validator()); //
 
 app.use(session({
     secret: 'my secret',
-    saveUnitialized: false,
+    saveUninitialized: false,
     resave: false,
     cookie: {maxAge: 30 * 24 * 60 * 1000}
 }));
